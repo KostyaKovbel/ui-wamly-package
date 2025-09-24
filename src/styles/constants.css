@@ -1,31 +1,254 @@
 /* CSS Constants for UI Wamly Package */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
-  /* Colors */
-  --w-color-primary: #3b82f6;
-  --w-color-primary-hover: #2563eb;
-  --w-color-primary-active: #1d4ed8;
+  /* Spacing scale (4px grid) */
+  --w-spacing-0: 0px;
+  --w-spacing-1: 4px;
+  --w-spacing-2: 8px;
+  --w-spacing-3: 12px;
+  --w-spacing-4: 16px;
+  --w-spacing-5: 20px;
+  --w-spacing-6: 24px;
+  --w-spacing-7: 28px;
+  --w-spacing-8: 32px;
+  --w-spacing-9: 36px;
+  --w-spacing-10: 40px;
 
-  --w-color-secondary: #6b7280;
-  --w-color-secondary-hover: #4b5563;
-  --w-color-secondary-active: #374151;
+  /* Negative spacing */
+  --w-spacing-n1: -4px;
+  --w-spacing-n2: -8px;
+  --w-spacing-n3: -12px;
+  --w-spacing-n4: -16px;
+  --w-spacing-n5: -20px;
+  --w-spacing-n6: -24px;
+  --w-spacing-n7: -28px;
+  --w-spacing-n8: -32px;
+  --w-spacing-n9: -36px;
+  --w-spacing-n10: -40px;
 
-  --w-color-success: #10b981;
-  --w-color-warning: #f59e0b;
-  --w-color-error: #ef4444;
+  /* Neutral colors */
+  --w-neutral-0: #ffffff;
+  --w-neutral-100: #f8f8f8;
+  --w-neutral-200: #f1f2f6;
+  --w-neutral-300: #dddee1;
+  --w-neutral-400: #b7b9be;
+  --w-neutral-500: #8c8f97;
+  --w-neutral-600: #7d818a;
+  --w-neutral-700: #6b6e76;
+  --w-neutral-800: #505258;
+  --w-neutral-900: #3b3d42;
+  --w-neutral-1000: #292a2e;
 
-  --w-color-background: #ffffff;
-  --w-color-surface: #f9fafb;
-  --w-color-border: #e5e7eb;
-  --w-color-text: #111827;
-  --w-color-text-muted: #6b7280;
+  /* Neutral alpha colors */
+  --w-neutral-alpha-100: #171717;
+  --w-neutral-alpha-200: #051524;
+  --w-neutral-alpha-300: #0b1228;
+  --w-neutral-alpha-400: #080f21;
+  --w-neutral-alpha-500: #050c1f;
+
+  /* Dark colors */
+  --w-dark-0: #18191a;
+  --w-dark-100: #1f1f21;
+  --w-dark-200: #242528;
+  --w-dark-300: #303134;
+  --w-dark-400: #4b4d51;
+  --w-dark-500: #63666b;
+  --w-dark-600: #8a8d93;
+  --w-dark-700: #a0a2a7;
+  --w-dark-800: #b5b7ba;
+  --w-dark-900: #d2d3d5;
+  --w-dark-1000: #f2f2f3;
+
+  /* Dark alpha colors */
+  --w-dark-alpha-100: #bdbdbd;
+  --w-dark-alpha-200: #ceced9;
+  --w-dark-alpha-300: #e3e4f2;
+  --w-dark-alpha-400: #e5e9f6;
+  --w-dark-alpha-500: #edf3fc;
+
+  /* Brand colors - Tomato */
+  --w-tomato-100: #fff1f1;
+  --w-tomato-200: #ffc7c7;
+  --w-tomato-300: #ffa0a0;
+  --w-tomato-400: #ff5757;
+  --w-tomato-500: #fd2b2b;
+  --w-tomato-600: #e00606;
+  --w-tomato-700: #ca0b0b;
+  --w-tomato-800: #a70e0e;
+  --w-tomato-900: #8c1010;
+  --w-tomato-1000: #450a0a;
+
+  /* Brand colors - Blue */
+  --w-blue-100: #eff7ff;
+  --w-blue-200: #cce7ff;
+  --w-blue-300: #92ceff;
+  --w-blue-400: #5db2fd;
+  --w-blue-500: #3790fa;
+  --w-blue-600: #076ec2;
+  --w-blue-700: #07649d;
+  --w-blue-800: #0a5582;
+  --w-blue-900: #0f466b;
+  --w-blue-1000: #0a2e49;
+
+  /* Brand colors - Sunshine */
+  --w-sunshine-100: #fff5d6;
+  --w-sunshine-200: #ffe699;
+  --w-sunshine-300: #ffce55;
+  --w-sunshine-400: #ffb520;
+  --w-sunshine-500: #f9a007;
+  --w-sunshine-600: #dd8502;
+  --w-sunshine-700: #b76706;
+  --w-sunshine-800: #94500c;
+  --w-sunshine-900: #7a3c0d;
+  --w-sunshine-1000: #461902;
+
+  /* Brand colors - Green */
+  --w-green-100: #f0fdf1;
+  --w-green-200: #bdf5c6;
+  --w-green-300: #8aeb9a;
+  --w-green-400: #64dd78;
+  --w-green-500: #28bf42;
+  --w-green-600: #1b9e31;
+  --w-green-700: #197c2a;
+  --w-green-800: #196226;
+  --w-green-900: #165121;
+  --w-green-1000: #072c0f;
+
+  /* Text colors */
+  --w-text-primary: var(--w-neutral-1000);
+  --w-text-secondary: var(--w-neutral-800);
+  --w-text-tertiary: var(--w-neutral-700);
+  --w-text-invert: var(--w-neutral-0);
+  --w-text-danger: var(--w-tomato-700);
+  --w-text-warning: var(--w-sunshine-700);
+  --w-text-success: var(--w-green-700);
+  --w-text-information: var(--w-blue-700);
+  --w-text-disabled: var(--w-neutral-alpha-400);
+
+  /* Background colors - Neutral */
+  --w-bg-neutral: var(--w-neutral-alpha-200);
+  --w-bg-neutral-hover: var(--w-neutral-alpha-300);
+  --w-bg-neutral-pressed: var(--w-neutral-alpha-400);
+  --w-bg-neutral-bold: var(--w-neutral-800);
+  --w-bg-neutral-bold-hover: var(--w-neutral-900);
+  --w-bg-neutral-bold-pressed: var(--w-neutral-1000);
+
+  /* Background colors - Danger */
+  --w-bg-danger: var(--w-tomato-200);
+  --w-bg-danger-hover: var(--w-tomato-300);
+  --w-bg-danger-pressed: var(--w-tomato-400);
+  --w-bg-danger-subtle: var(--w-tomato-100);
+  --w-bg-danger-subtle-hover: var(--w-tomato-200);
+  --w-bg-danger-subtle-pressed: var(--w-tomato-300);
+  --w-bg-danger-bold: var(--w-tomato-700);
+  --w-bg-danger-bold-hover: var(--w-tomato-800);
+  --w-bg-danger-bold-pressed: var(--w-tomato-900);
+
+  /* Background colors - Warning */
+  --w-bg-warning: var(--w-sunshine-200);
+  --w-bg-warning-hover: var(--w-sunshine-400);
+  --w-bg-warning-pressed: var(--w-sunshine-500);
+  --w-bg-warning-subtle: var(--w-sunshine-100);
+  --w-bg-warning-subtle-hover: var(--w-sunshine-200);
+  --w-bg-warning-subtle-pressed: var(--w-sunshine-300);
+  --w-bg-warning-bold: var(--w-sunshine-600);
+  --w-bg-warning-bold-hover: var(--w-sunshine-700);
+  --w-bg-warning-bold-pressed: var(--w-sunshine-800);
+
+  /* Background colors - Success */
+  --w-bg-success: var(--w-green-200);
+  --w-bg-success-hover: var(--w-green-300);
+  --w-bg-success-pressed: var(--w-green-400);
+  --w-bg-success-bold: var(--w-green-700);
+  --w-bg-success-bold-hover: var(--w-green-800);
+  --w-bg-success-bold-pressed: var(--w-green-900);
+
+  /* Background colors - Information */
+  --w-bg-information: var(--w-blue-200);
+  --w-bg-information-hover: var(--w-blue-200);
+  --w-bg-information-pressed: var(--w-blue-300);
+  --w-bg-information-subtle: var(--w-blue-100);
+  --w-bg-information-subtle-hover: var(--w-blue-200);
+  --w-bg-information-subtle-pressed: var(--w-blue-300);
+  --w-bg-information-bold: var(--w-blue-700);
+  --w-bg-information-bold-hover: var(--w-blue-800);
+  --w-bg-information-bold-pressed: var(--w-blue-900);
+
+  /* Background colors - Grey */
+  --w-bg-grey: var(--w-neutral-200);
+  --w-bg-grey-hover: var(--w-neutral-300);
+  --w-bg-grey-pressed: var(--w-neutral-400);
+  --w-bg-grey-bold: var(--w-neutral-700);
+  --w-bg-grey-bold-hover: var(--w-neutral-800);
+  --w-bg-grey-bold-pressed: var(--w-neutral-900);
+
+  /* Background colors - Input */
+  --w-bg-input: var(--w-neutral-0);
+  --w-bg-input-hover: var(--w-neutral-100);
+
+  /* Border colors */
+  --w-border-default: var(--w-neutral-alpha-300);
+  --w-border-subtle: var(--w-neutral-alpha-200);
+  --w-border-bold: var(--w-neutral-600);
+  --w-border-invert: var(--w-neutral-0);
+  --w-border-selected: var(--w-neutral-1000);
+  --w-border-focused: var(--w-neutral-800);
+  --w-border-disabled: var(--w-neutral-alpha-200);
+  --w-border-danger: var(--w-tomato-600);
+  --w-border-warning: var(--w-sunshine-600);
+  --w-border-success: var(--w-green-600);
+  --w-border-information: var(--w-blue-600);
+
+  /* Elevation colors */
+  --w-elevation-surface: var(--w-neutral-0);
+  --w-elevation-surface-hover: var(--w-neutral-200);
+  --w-elevation-surface-pressed: var(--w-neutral-300);
+  --w-elevation-surface-sunken: var(--w-neutral-100);
+  --w-elevation-surface-sunken-more: var(--w-neutral-200);
+
+  /* Shadow colors */
+  --w-shadow-overflow: #1e1f21;
+  --w-shadow-overflow-spread: rgba(30, 31, 33, 0.16);
+  --w-shadow-overflow-perimeter: rgba(30, 31, 33, 0.12);
+  --w-shadow-overflow-color: var(--w-neutral-0);
+  --w-shadow-raised: #1e1f21;
+  --w-shadow-raised-spread: rgba(30, 31, 33, 0.25);
+  --w-shadow-raised-perimeter: rgba(30, 31, 33, 0.31);
+  --w-shadow-raised-color: #1e1f21;
+  --w-shadow-overlay: #1e1f21;
+  --w-shadow-overlay-inner: rgba(189, 189, 189, 0);
+
+  /* Wamly brand colors */
+  --wamly-accent: var(--w-tomato-400);
+  --wamly-accent-60: #ff9c9c;
+
+  /* Semantic color mapping (legacy) */
+  --w-color-primary: var(--wamly-accent);
+  --w-color-primary-hover: var(--w-tomato-500);
+  --w-color-primary-active: var(--w-tomato-600);
+
+  --w-color-secondary: var(--w-neutral-500);
+  --w-color-secondary-hover: var(--w-neutral-600);
+  --w-color-secondary-active: var(--w-neutral-700);
+
+  --w-color-success: var(--w-green-500);
+  --w-color-warning: var(--w-sunshine-500);
+  --w-color-error: var(--w-tomato-500);
+
+  --w-color-background: var(--w-neutral-0);
+  --w-color-surface: var(--w-neutral-100);
+  --w-color-border: var(--w-neutral-300);
+  --w-color-text: var(--w-neutral-1000);
+  --w-color-text-muted: var(--w-neutral-600);
 
   /* Dark theme */
-  --w-color-dark-background: #111827;
-  --w-color-dark-surface: #1f2937;
-  --w-color-dark-border: #374151;
-  --w-color-dark-text: #f9fafb;
-  --w-color-dark-text-muted: #9ca3af;
+  --w-color-dark-background: var(--w-dark-0);
+  --w-color-dark-surface: var(--w-dark-100);
+  --w-color-dark-border: var(--w-dark-300);
+  --w-color-dark-text: var(--w-dark-1000);
+  --w-color-dark-text-muted: var(--w-dark-600);
 
   /* Legacy color variables for backward compatibility */
   --color-primary: var(--w-color-primary);
@@ -53,13 +276,13 @@
   --color-dark-text: var(--w-color-dark-text);
   --color-dark-text-muted: var(--w-color-dark-text-muted);
 
-  /* Spacing */
-  --w-spacing-xs: 0.25rem; /* 4px */
-  --w-spacing-sm: 0.5rem; /* 8px */
-  --w-spacing-md: 1rem; /* 16px */
-  --w-spacing-lg: 1.5rem; /* 24px */
-  --w-spacing-xl: 2rem; /* 32px */
-  --w-spacing-2xl: 3rem; /* 48px */
+  /* Legacy spacing (mapped to new scale) */
+  --w-spacing-xs: var(--w-spacing-1); /* 4px */
+  --w-spacing-sm: var(--w-spacing-2); /* 8px */
+  --w-spacing-md: var(--w-spacing-4); /* 16px */
+  --w-spacing-lg: var(--w-spacing-6); /* 24px */
+  --w-spacing-xl: var(--w-spacing-8); /* 32px */
+  --w-spacing-2xl: var(--w-spacing-10); /* 40px */
 
   /* Border radius */
   --w-radius-sm: 0.25rem; /* 4px */
@@ -94,6 +317,8 @@
   --shadow-lg: var(--w-shadow-lg);
 
   /* Typography */
+  --w-font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  
   --w-font-size-xs: 0.75rem; /* 12px */
   --w-font-size-sm: 0.875rem; /* 14px */
   --w-font-size-base: 1rem; /* 16px */
@@ -101,6 +326,7 @@
   --w-font-size-xl: 1.25rem; /* 20px */
   --w-font-size-2xl: 1.5rem; /* 24px */
 
+  --w-font-weight-light: 300;
   --w-font-weight-normal: 400;
   --w-font-weight-medium: 500;
   --w-font-weight-semibold: 600;
@@ -158,6 +384,115 @@
 
 /* Dark theme */
 [data-theme="dark"] {
+  /* Text colors */
+  --w-text-primary: var(--w-dark-1000);
+  --w-text-secondary: var(--w-dark-800);
+  --w-text-tertiary: var(--w-dark-700);
+  --w-text-invert: var(--w-dark-100);
+  --w-text-danger: var(--w-tomato-300);
+  --w-text-warning: var(--w-sunshine-300);
+  --w-text-success: var(--w-green-300);
+  --w-text-information: var(--w-blue-300);
+  --w-text-disabled: var(--w-dark-alpha-400);
+
+  /* Background colors - Neutral */
+  --w-bg-neutral: var(--w-dark-alpha-200);
+  --w-bg-neutral-hover: var(--w-dark-alpha-300);
+  --w-bg-neutral-pressed: var(--w-dark-alpha-400);
+  --w-bg-neutral-bold: var(--w-dark-800);
+  --w-bg-neutral-bold-hover: var(--w-dark-900);
+  --w-bg-neutral-bold-pressed: var(--w-dark-1000);
+
+  /* Background colors - Danger */
+  --w-bg-danger: var(--w-tomato-900);
+  --w-bg-danger-hover: var(--w-tomato-800);
+  --w-bg-danger-pressed: var(--w-tomato-700);
+  --w-bg-danger-subtle: var(--w-tomato-1000);
+  --w-bg-danger-subtle-hover: var(--w-tomato-900);
+  --w-bg-danger-subtle-pressed: var(--w-tomato-800);
+  --w-bg-danger-bold: var(--w-tomato-400);
+  --w-bg-danger-bold-hover: var(--w-tomato-300);
+  --w-bg-danger-bold-pressed: var(--w-tomato-200);
+
+  /* Background colors - Warning */
+  --w-bg-warning: var(--w-sunshine-900);
+  --w-bg-warning-hover: var(--w-sunshine-800);
+  --w-bg-warning-pressed: var(--w-sunshine-700);
+  --w-bg-warning-subtle: var(--w-sunshine-1000);
+  --w-bg-warning-subtle-hover: var(--w-sunshine-900);
+  --w-bg-warning-subtle-pressed: var(--w-sunshine-800);
+  --w-bg-warning-bold: var(--w-sunshine-400);
+  --w-bg-warning-bold-hover: var(--w-sunshine-300);
+  --w-bg-warning-bold-pressed: var(--w-sunshine-200);
+
+  /* Background colors - Success */
+  --w-bg-success: var(--w-green-900);
+  --w-bg-success-hover: var(--w-green-800);
+  --w-bg-success-pressed: var(--w-green-700);
+  --w-bg-success-bold: var(--w-green-400);
+  --w-bg-success-bold-hover: var(--w-green-300);
+  --w-bg-success-bold-pressed: var(--w-green-200);
+
+  /* Background colors - Information */
+  --w-bg-information: var(--w-blue-900);
+  --w-bg-information-hover: var(--w-blue-800);
+  --w-bg-information-pressed: var(--w-blue-700);
+  --w-bg-information-subtle: var(--w-blue-1000);
+  --w-bg-information-subtle-hover: var(--w-blue-900);
+  --w-bg-information-subtle-pressed: var(--w-blue-800);
+  --w-bg-information-bold: var(--w-blue-400);
+  --w-bg-information-bold-hover: var(--w-blue-300);
+  --w-bg-information-bold-pressed: var(--w-blue-200);
+
+  /* Background colors - Grey */
+  --w-bg-grey: var(--w-dark-200);
+  --w-bg-grey-hover: var(--w-dark-300);
+  --w-bg-grey-pressed: var(--w-dark-400);
+  --w-bg-grey-bold: var(--w-dark-700);
+  --w-bg-grey-bold-hover: var(--w-dark-800);
+  --w-bg-grey-bold-pressed: var(--w-dark-900);
+
+  /* Background colors - Input */
+  --w-bg-input: var(--w-dark-200);
+  --w-bg-input-hover: var(--w-dark-300);
+
+  /* Border colors */
+  --w-border-default: var(--w-dark-alpha-300);
+  --w-border-subtle: var(--w-dark-alpha-200);
+  --w-border-bold: var(--w-dark-600);
+  --w-border-invert: var(--w-dark-0);
+  --w-border-selected: var(--w-dark-1000);
+  --w-border-focused: var(--w-dark-800);
+  --w-border-disabled: var(--w-dark-alpha-200);
+  --w-border-danger: var(--w-tomato-500);
+  --w-border-warning: var(--w-sunshine-500);
+  --w-border-success: var(--w-green-500);
+  --w-border-information: var(--w-blue-500);
+
+  /* Elevation colors */
+  --w-elevation-surface: var(--w-dark-200);
+  --w-elevation-surface-hover: var(--w-dark-300);
+  --w-elevation-surface-pressed: var(--w-dark-400);
+  --w-elevation-surface-sunken: var(--w-dark-100);
+  --w-elevation-surface-sunken-more: var(--w-dark-0);
+
+  /* Shadow colors */
+  --w-shadow-overflow: #010404;
+  --w-shadow-overflow-spread: rgba(1, 4, 4, 0.56);
+  --w-shadow-overflow-perimeter: rgba(1, 4, 4, 0.5);
+  --w-shadow-overflow-color: var(--w-neutral-0);
+  --w-shadow-raised: #010404;
+  --w-shadow-raised-spread: rgba(1, 4, 4, 0.8);
+  --w-shadow-raised-perimeter: rgba(1, 4, 4, 0.8);
+  --w-shadow-raised-color: #1e1f21;
+  --w-shadow-overlay: #010404;
+  --w-shadow-overlay-inner: #bdbdbd;
+
+  /* Wamly brand colors - Dark theme */
+  --wamly-accent: var(--w-tomato-400);
+  --wamly-accent-60: #ff9c9c;
+
+  /* Legacy dark theme variables */
   --w-color-background: var(--w-color-dark-background);
   --w-color-surface: var(--w-color-dark-surface);
   --w-color-border: var(--w-color-dark-border);

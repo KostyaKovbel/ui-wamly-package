@@ -14,19 +14,27 @@ const meta: Meta<typeof Button> = {
     },
     size: {
       control: { type: "select" },
-      options: ["sm", "md", "lg"],
+      options: ["L", "M", "S"],
     },
-    appearance: {
+    variant: {
+      control: { type: "select" },
+      options: ["fill", "outline", "soft"],
+    },
+    color: {
       control: { type: "select" },
       options: [
         "primary",
         "secondary",
-        "outline",
-        "ghost",
         "success",
         "warning",
-        "error",
+        "danger",
+        "information",
+        "neutral",
       ],
+    },
+    state: {
+      control: { type: "select" },
+      options: ["enabled", "disabled"],
     },
     disabled: {
       control: { type: "boolean" },
@@ -40,8 +48,10 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: {
     children: "Button",
-    size: "md",
-    appearance: "primary",
+    size: "M",
+    variant: "fill",
+    color: "primary",
+    state: "enabled",
     disabled: false,
   },
 };
@@ -56,7 +66,7 @@ export const AllVariants: Story = {
         alignItems: "center",
       }}
     >
-      <h3>All Appearance Variants</h3>
+      <h3>All Variants</h3>
       <div
         style={{
           display: "flex",
@@ -65,37 +75,84 @@ export const AllVariants: Story = {
           justifyContent: "center",
         }}
       >
-        <Button {...args} appearance="primary">
-          Primary
+        <Button {...args} variant="fill">
+          Fill
         </Button>
-        <Button {...args} appearance="secondary">
-          Secondary
-        </Button>
-        <Button {...args} appearance="outline">
+        <Button {...args} variant="outline">
           Outline
         </Button>
-        <Button {...args} appearance="ghost">
-          Ghost
-        </Button>
-        <Button {...args} appearance="success">
-          Success
-        </Button>
-        <Button {...args} appearance="warning">
-          Warning
-        </Button>
-        <Button {...args} appearance="error">
-          Error
+        <Button {...args} variant="soft">
+          Soft
         </Button>
       </div>
     </div>
   ),
   args: {
     children: "Button",
-    size: "md",
+    size: "M",
+    color: "primary",
+    state: "enabled",
     disabled: false,
   },
   argTypes: {
-    appearance: {
+    variant: {
+      control: false,
+    },
+  },
+};
+
+export const AllColors: Story = {
+  render: (args) => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        alignItems: "center",
+      }}
+    >
+      <h3>All Colors</h3>
+      <div
+        style={{
+          display: "flex",
+          gap: "12px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
+        <Button {...args} color="primary">
+          Primary
+        </Button>
+        <Button {...args} color="secondary">
+          Secondary
+        </Button>
+        <Button {...args} color="success">
+          Success
+        </Button>
+        <Button {...args} color="warning">
+          Warning
+        </Button>
+        <Button {...args} color="danger">
+          Danger
+        </Button>
+        <Button {...args} color="information">
+          Information
+        </Button>
+        <Button {...args} color="neutral">
+          Neutral
+        </Button>
+      </div>
+    </div>
+  ),
+  args: {
+    children: "Button",
+    size: "M",
+    variant: "fill",
+    state: "enabled",
+    disabled: false,
+  },
+  argTypes: {
+    color: {
       control: false,
     },
   },
@@ -113,24 +170,107 @@ export const AllSizes: Story = {
     >
       <h3>All Sizes</h3>
       <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
-        <Button {...args} size="sm">
-          Small
+        <Button {...args} size="L">
+          Large
         </Button>
-        <Button {...args} size="md">
+        <Button {...args} size="M">
           Medium
         </Button>
-        <Button {...args} size="lg">
-          Large
+        <Button {...args} size="S">
+          Small
         </Button>
       </div>
     </div>
   ),
   args: {
     children: "Button",
-    appearance: "primary",
+    variant: "fill",
+    color: "primary",
+    state: "enabled",
     disabled: false,
   },
   argTypes: {
+    size: {
+      control: false,
+    },
+  },
+};
+
+export const AllCombinations: Story = {
+  render: (args) => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "24px",
+        alignItems: "center",
+      }}
+    >
+      <h3>All Combinations</h3>
+      {[
+        "primary",
+        "secondary",
+        "success",
+        "warning",
+        "danger",
+        "information",
+        "neutral",
+      ].map((color) => (
+        <div
+          key={color}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+            alignItems: "center",
+          }}
+        >
+          <h4 style={{ textTransform: "capitalize", margin: 0 }}>{color}</h4>
+          <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+            <Button {...args} color={color as any} variant="fill" size="L">
+              Fill L
+            </Button>
+            <Button {...args} color={color as any} variant="fill" size="M">
+              Fill M
+            </Button>
+            <Button {...args} color={color as any} variant="fill" size="S">
+              Fill S
+            </Button>
+            <Button {...args} color={color as any} variant="outline" size="L">
+              Outline L
+            </Button>
+            <Button {...args} color={color as any} variant="outline" size="M">
+              Outline M
+            </Button>
+            <Button {...args} color={color as any} variant="outline" size="S">
+              Outline S
+            </Button>
+            <Button {...args} color={color as any} variant="soft" size="L">
+              Soft L
+            </Button>
+            <Button {...args} color={color as any} variant="soft" size="M">
+              Soft M
+            </Button>
+            <Button {...args} color={color as any} variant="soft" size="S">
+              Soft S
+            </Button>
+          </div>
+        </div>
+      ))}
+    </div>
+  ),
+  args: {
+    children: "Button",
+    state: "enabled",
+    disabled: false,
+  },
+  argTypes: {
+    color: {
+      control: false,
+    },
+    variant: {
+      control: false,
+    },
     size: {
       control: false,
     },

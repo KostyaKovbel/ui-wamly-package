@@ -25,7 +25,7 @@ import "ui-wamly-package/dist/index.css";
 function App() {
   return (
     <div>
-      <Button appearance="primary" size="md">
+      <Button variant="fill" color="primary" size="M">
         Click me
       </Button>
     </div>
@@ -37,9 +37,49 @@ function App() {
 
 ### Button
 
-- Variants: `primary`, `secondary`, `outline`, `ghost`, `success`, `warning`, `error`
-- Sizes: `sm`, `md`, `lg`
-- Support for all standard HTML button attributes
+A versatile button component with multiple variants, colors, and sizes.
+
+#### Props
+
+- `size`: `"L"` | `"M"` | `"S"` - Button size (default: `"M"`)
+- `variant`: `"fill"` | `"outline"` | `"soft"` - Button style (default: `"fill"`)
+- `color`: `"primary"` | `"secondary"` | `"success"` | `"warning"` | `"danger"` | `"information"` | `"neutral"` - Button color (default: `"primary"`)
+- `state`: `"enabled"` | `"disabled"` - Button state (default: `"enabled"`)
+- `disabled`: `boolean` - HTML disabled attribute
+- `children`: `React.ReactNode` - Button content
+
+#### Usage Examples
+
+```tsx
+// Basic usage
+<Button>Click me</Button>
+
+// Different sizes
+<Button size="L">Large Button</Button>
+<Button size="M">Medium Button</Button>
+<Button size="S">Small Button</Button>
+
+// Different variants
+<Button variant="fill" color="primary">Fill Button</Button>
+<Button variant="outline" color="primary">Outline Button</Button>
+<Button variant="soft" color="primary">Soft Button</Button>
+
+// Different colors
+<Button color="success">Success</Button>
+<Button color="warning">Warning</Button>
+<Button color="danger">Danger</Button>
+
+// Disabled state
+<Button state="disabled">Disabled Button</Button>
+<Button disabled>Also Disabled</Button>
+```
+
+#### Design System
+
+- **Font**: Poppins (300, 400, 500, 600, 700 weights)
+- **Spacing**: 4px grid system
+- **Colors**: Wamly brand colors with tomato accent
+- **Sizes**: L (16px/16px padding), M (16px/8px padding), S (14px/8px padding)
 
 ## 🛠 Development
 
@@ -120,9 +160,15 @@ Here you can:
 - Copy code for usage
 - View documentation
 
-## 🎨 Styling
+## 🎨 Design System
 
-The library uses CSS variables for theming. Light and dark themes are supported.
+The library follows the Wamly design system with:
+
+- **Typography**: Poppins font family (300, 400, 500, 600, 700 weights)
+- **Spacing**: 4px grid system (0px to 40px)
+- **Colors**: Tomato accent color (#FF5757) with full color palette
+- **Components**: Consistent sizing and styling across all components
+- **Theming**: Light and dark theme support with CSS variables
 
 ### CSS Variables
 
@@ -130,12 +176,48 @@ The library provides CSS variables with the `--w-` prefix:
 
 ```css
 :root {
-  --w-color-primary: #3b82f6;
-  --w-color-primary-hover: #2563eb;
-  --w-color-primary-active: #1d4ed8;
-  --w-spacing-md: 1rem;
-  --w-radius-md: 0.375rem;
-  /* ... and many more */
+  /* Wamly brand colors */
+  --wamly-accent: #ff5757;
+  --wamly-accent-60: #ff9c9c;
+  
+  /* Typography */
+  --w-font-family: 'Poppins', sans-serif;
+  
+  /* Spacing (4px grid) */
+  --w-spacing-0: 0px;
+  --w-spacing-1: 4px;
+  --w-spacing-2: 8px;
+  --w-spacing-3: 12px;
+  --w-spacing-4: 16px;
+  --w-spacing-5: 20px;
+  --w-spacing-6: 24px;
+  --w-spacing-7: 28px;
+  --w-spacing-8: 32px;
+  --w-spacing-9: 36px;
+  --w-spacing-10: 40px;
+  
+  /* Colors */
+  --w-text-primary: #292a2e;
+  --w-text-secondary: #505258;
+  --w-text-tertiary: #6b6e76;
+  --w-text-invert: #ffffff;
+  
+  /* Background colors */
+  --w-bg-neutral: rgba(30, 31, 33, 0.06);
+  --w-bg-danger: #ffc7c7;
+  --w-bg-success: #bdf5c6;
+  --w-bg-warning: #ffe699;
+  --w-bg-information: #cce7ff;
+  
+  /* Border colors */
+  --w-border-default: rgba(30, 31, 33, 0.12);
+  --w-border-focused: #505258;
+  --w-border-danger: #e00606;
+  --w-border-success: #1b9e31;
+  --w-border-warning: #dd8502;
+  --w-border-information: #076ec2;
+  
+  /* And many more... */
 }
 ```
 

@@ -1,20 +1,18 @@
 import React, { useRef } from "react";
-import { ButtonSize } from "../../constants";
+import {
+  ButtonSize,
+  ButtonVariant,
+  ButtonColor,
+  ButtonState,
+} from "../../constants";
 import styles from "./Button.module.css";
-
-export type ButtonAppearance =
-  | "primary"
-  | "secondary"
-  | "outline"
-  | "ghost"
-  | "success"
-  | "warning"
-  | "error";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
-  appearance?: ButtonAppearance;
+  variant?: ButtonVariant;
+  color?: ButtonColor;
+  state?: ButtonState;
   children: React.ReactNode;
 }
 
@@ -22,10 +20,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className = "",
-      size = "md",
-      appearance = "primary",
+      size = "M",
+      variant = "fill",
+      color = "primary",
+      state = "enabled",
       children,
       onClick,
+      disabled,
       ...props
     },
     ref
@@ -36,10 +37,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       onClick?.(e);
     };
 
+    const isDisabled = disabled || state === "disabled";
+
     const buttonClasses = [
       styles.button,
       styles[size],
-      styles[appearance],
+      styles[variant],
+      styles[color],
+      isDisabled && styles.disabled,
       className,
     ]
       .filter(Boolean)
@@ -50,6 +55,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref || buttonRef}
         className={buttonClasses}
         onClick={handleClick}
+        disabled={isDisabled}
         {...props}
       >
         {children}
