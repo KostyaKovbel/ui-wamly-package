@@ -118,14 +118,27 @@ The Storybook is automatically deployed to GitHub Pages:
 - **Development**: https://kostyakovbel.github.io/ui-wamly-package/dev (dev branch)
 - **Staging**: https://kostyakovbel.github.io/ui-wamly-package/staging (staging branch)
 
-#### Setting up GitHub Pages
+#### Setting up Vercel
 
-To enable GitHub Pages deployment:
+To enable Vercel deployment:
 
-1. Go to your repository Settings
-2. Navigate to Pages section
-3. Under "Source", select "GitHub Actions"
-4. The workflow will automatically deploy on every push to main branch
+1. Go to https://vercel.com and sign in with GitHub
+2. Click "New Project" and select your repository
+3. Configure build settings:
+   - Build Command: `npm run build-storybook`
+   - Output Directory: `storybook-static`
+4. Vercel will automatically deploy on every push to any branch
+
+#### Setting up NPM Publishing
+
+To enable NPM publishing:
+
+1. Add NPM token to GitHub Secrets:
+   - `NPM_TOKEN` - from https://www.npmjs.com/settings/tokens
+2. GitHub Actions will automatically publish on every push:
+   - Main branch → `latest` tag
+   - Dev branch → `dev` tag
+   - Staging branch → `staging` tag
 
 Here you can:
 
