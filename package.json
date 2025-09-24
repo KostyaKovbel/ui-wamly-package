@@ -1,5 +1,5 @@
 {
-  "name": "@breadbq/ui-wamly",
+  "name": "ui-wamly-package",
   "version": "1.0.0",
   "description": "UI компоненти для проекту Wamly",
   "main": "dist/index.js",
@@ -28,7 +28,6 @@
   ],
   "author": "breadbq",
   "license": "MIT",
-  "private": true,
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
