@@ -1,6 +1,6 @@
 {
   "name": "ui-wamly-package",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "UI components for the Wamly project",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
