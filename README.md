@@ -78,31 +78,11 @@ npm run type-check
 
 #### Automatic Publishing
 
-- **Main branch**: Automatically publishes patch versions with `latest` tag
-- **Dev branch**: Automatically publishes dev versions with `dev` tag
-- **Staging branch**: Automatically publishes staging versions with `staging` tag
+Every push to main branch automatically:
 
-#### Manual Publishing
-
-To manually publish a new version:
-
-1. Go to Actions tab in GitHub
-2. Run "Deploy and Publish (Production)" workflow
-3. Choose version type (patch, minor, major)
-4. The package will be published to NPM with `latest` tag
-
-#### Installing Different Versions
-
-```bash
-# Production (latest)
-npm install ui-wamly-package
-
-# Development
-npm install ui-wamly-package@dev
-
-# Staging
-npm install ui-wamly-package@staging
-```
+1. Patches the version (1.0.2 → 1.0.3)
+2. Publishes to NPM with `latest` tag
+3. Deploys Storybook to GitHub Pages
 
 ## 📚 Storybook
 
