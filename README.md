@@ -129,7 +129,7 @@ To enable Vercel deployment:
    - Output Directory: `storybook-static`
 4. Add Vercel tokens to GitHub Secrets:
    - `VERCEL_TOKEN`
-   - `VERCEL_ORG_ID` 
+   - `VERCEL_ORG_ID`
    - `VERCEL_PROJECT_ID`
 5. The workflow will automatically deploy on every push to any branch
 
