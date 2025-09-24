@@ -112,20 +112,26 @@ Storybook is available at `http://localhost:6006` after running `npm run storybo
 
 ### Online Documentation
 
-The Storybook is automatically deployed to GitHub Pages:
+The Storybook is automatically deployed to Vercel:
 
-- **Production**: https://kostyakovbel.github.io/ui-wamly-package/ (main branch)
-- **Development**: https://kostyakovbel.github.io/ui-wamly-package/dev (dev branch)
-- **Staging**: https://kostyakovbel.github.io/ui-wamly-package/staging (staging branch)
+- **Production**: https://ui-wamly-package.vercel.app/ (main branch)
+- **Development**: https://ui-wamly-package-git-dev.vercel.app/ (dev branch)
+- **Staging**: https://ui-wamly-package-git-staging.vercel.app/ (staging branch)
 
-#### Setting up GitHub Pages
+#### Setting up Vercel
 
-To enable GitHub Pages deployment:
+To enable Vercel deployment:
 
-1. Go to your repository Settings
-2. Navigate to Pages section
-3. Under "Source", select "GitHub Actions"
-4. The workflow will automatically deploy on every push to main branch
+1. Go to https://vercel.com and sign in with GitHub
+2. Click "New Project" and select your repository
+3. Configure build settings:
+   - Build Command: `npm run build-storybook`
+   - Output Directory: `storybook-static`
+4. Add Vercel tokens to GitHub Secrets:
+   - `VERCEL_TOKEN`
+   - `VERCEL_ORG_ID` 
+   - `VERCEL_PROJECT_ID`
+5. The workflow will automatically deploy on every push to any branch
 
 Here you can:
 
