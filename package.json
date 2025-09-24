@@ -1,5 +1,5 @@
 {
-  "name": "ui-wamly-package",
+  "name": "@breadbq/ui-wamly-package",
   "version": "1.0.1",
   "description": "UI components for the Wamly project",
   "main": "dist/index.js",

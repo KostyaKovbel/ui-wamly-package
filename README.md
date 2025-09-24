@@ -13,14 +13,14 @@ A UI component library for the Wamly project, built with React 18 and TypeScript
 ## 📦 Installation
 
 ```bash
-npm install ui-wamly-package
+npm install @breadbq/ui-wamly-package
 ```
 
 ## 🎯 Usage
 
 ```tsx
-import { Button } from "ui-wamly-package";
-import "ui-wamly-package/dist/index.css";
+import { Button } from "@breadbq/ui-wamly-package";
+import "@breadbq/ui-wamly-package/dist/index.css";
 
 function App() {
   return (
