@@ -76,12 +76,33 @@ npm run type-check
 
 ### Publishing to NPM
 
-To publish a new version to NPM:
+#### Automatic Publishing
+
+- **Main branch**: Automatically publishes patch versions with `latest` tag
+- **Dev branch**: Automatically publishes dev versions with `dev` tag
+- **Staging branch**: Automatically publishes staging versions with `staging` tag
+
+#### Manual Publishing
+
+To manually publish a new version:
 
 1. Go to Actions tab in GitHub
-2. Run "Publish Package to NPM" workflow
+2. Run "Deploy and Publish (Production)" workflow
 3. Choose version type (patch, minor, major)
-4. The package will be automatically published to NPM
+4. The package will be published to NPM with `latest` tag
+
+#### Installing Different Versions
+
+```bash
+# Production (latest)
+npm install ui-wamly-package
+
+# Development
+npm install ui-wamly-package@dev
+
+# Staging
+npm install ui-wamly-package@staging
+```
 
 ## 📚 Storybook
 
@@ -91,8 +112,11 @@ Storybook is available at `http://localhost:6006` after running `npm run storybo
 
 ### Online Documentation
 
-The Storybook is automatically deployed to GitHub Pages and available at:
-**https://kostyakovbel.github.io/ui-wamly-package/**
+The Storybook is automatically deployed to GitHub Pages:
+
+- **Production**: https://kostyakovbel.github.io/ui-wamly-package/ (main branch)
+- **Development**: https://kostyakovbel.github.io/ui-wamly-package/dev (dev branch)
+- **Staging**: https://kostyakovbel.github.io/ui-wamly-package/staging (staging branch)
 
 #### Setting up GitHub Pages
 
