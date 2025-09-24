@@ -100,12 +100,7 @@ import { Button, ButtonProps } from "ui-wamly-package";
 // Type-safe props
 const MyButton: React.FC<ButtonProps> = ({ size, variant, color, onClick }) => {
   return (
-    <Button 
-      size={size} 
-      variant={variant} 
-      color={color} 
-      onClick={onClick}
-    >
+    <Button size={size} variant={variant} color={color} onClick={onClick}>
       Click me
     </Button>
   );
@@ -114,7 +109,14 @@ const MyButton: React.FC<ButtonProps> = ({ size, variant, color, onClick }) => {
 // Available types
 type ButtonSize = "L" | "M" | "S";
 type ButtonVariant = "fill" | "outline" | "soft";
-type ButtonColor = "primary" | "secondary" | "success" | "warning" | "danger" | "information" | "neutral";
+type ButtonColor =
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "danger"
+  | "information"
+  | "neutral";
 type ButtonState = "enabled" | "disabled";
 ```
 
@@ -123,9 +125,9 @@ type ButtonState = "enabled" | "disabled";
 - **Font**: Poppins (300, 400, 500, 600, 700 weights)
 - **Spacing**: 4px grid system (0px to 40px)
 - **Colors**: Wamly brand colors with tomato accent (#FF5757)
-- **Sizes**: 
+- **Sizes**:
   - **L**: 16px font, 16px/24px padding (vertical/horizontal), min-height 48px
-  - **M**: 16px font, 8px/12px padding (vertical/horizontal), min-height 40px  
+  - **M**: 16px font, 8px/12px padding (vertical/horizontal), min-height 40px
   - **S**: 14px font, 8px/12px padding (vertical/horizontal), min-height 32px
 - **Variants**:
   - **Fill**: Solid background with brand color, white text
