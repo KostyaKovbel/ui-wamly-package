@@ -47,6 +47,9 @@ A versatile button component with multiple variants, colors, and sizes.
 - `state`: `"enabled"` | `"disabled"` - Button state (default: `"enabled"`)
 - `disabled`: `boolean` - HTML disabled attribute
 - `children`: `React.ReactNode` - Button content
+- `onClick`: `(event: React.MouseEvent<HTMLButtonElement>) => void` - Click handler
+- `className`: `string` - Additional CSS classes
+- `...props`: All standard HTML button attributes
 
 #### Usage Examples
 
@@ -72,14 +75,65 @@ A versatile button component with multiple variants, colors, and sizes.
 // Disabled state
 <Button state="disabled">Disabled Button</Button>
 <Button disabled>Also Disabled</Button>
+
+// All color combinations
+<Button variant="fill" color="primary">Primary Fill</Button>
+<Button variant="outline" color="success">Success Outline</Button>
+<Button variant="soft" color="warning">Warning Soft</Button>
+<Button variant="fill" color="danger">Danger Fill</Button>
+<Button variant="outline" color="information">Info Outline</Button>
+<Button variant="soft" color="neutral">Neutral Soft</Button>
+
+// Size and variant combinations
+<Button size="L" variant="fill" color="primary">Large Primary</Button>
+<Button size="M" variant="outline" color="success">Medium Success</Button>
+<Button size="S" variant="soft" color="warning">Small Warning</Button>
+```
+
+#### TypeScript Support
+
+The Button component is fully typed with TypeScript:
+
+```tsx
+import { Button, ButtonProps } from "ui-wamly-package";
+
+// Type-safe props
+const MyButton: React.FC<ButtonProps> = ({ size, variant, color, onClick }) => {
+  return (
+    <Button 
+      size={size} 
+      variant={variant} 
+      color={color} 
+      onClick={onClick}
+    >
+      Click me
+    </Button>
+  );
+};
+
+// Available types
+type ButtonSize = "L" | "M" | "S";
+type ButtonVariant = "fill" | "outline" | "soft";
+type ButtonColor = "primary" | "secondary" | "success" | "warning" | "danger" | "information" | "neutral";
+type ButtonState = "enabled" | "disabled";
 ```
 
 #### Design System
 
 - **Font**: Poppins (300, 400, 500, 600, 700 weights)
-- **Spacing**: 4px grid system
-- **Colors**: Wamly brand colors with tomato accent
-- **Sizes**: L (16px/16px padding), M (16px/8px padding), S (14px/8px padding)
+- **Spacing**: 4px grid system (0px to 40px)
+- **Colors**: Wamly brand colors with tomato accent (#FF5757)
+- **Sizes**: 
+  - **L**: 16px font, 16px/24px padding (vertical/horizontal), min-height 48px
+  - **M**: 16px font, 8px/12px padding (vertical/horizontal), min-height 40px  
+  - **S**: 14px font, 8px/12px padding (vertical/horizontal), min-height 32px
+- **Variants**:
+  - **Fill**: Solid background with brand color, white text
+  - **Outline**: Transparent background, colored border and text
+  - **Soft**: Light background with brand color, colored text
+- **Accessibility**: Full keyboard navigation, focus indicators, ARIA support
+- **Theming**: Automatic light/dark theme support via CSS variables
+- **Hover/Active States**: Smooth transitions with proper feedback
 
 ## 🛠 Development
 
