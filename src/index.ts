@@ -1,6 +1,6 @@
 // Components
 export { Button } from "./components/Button";
-export type { ButtonProps, ButtonAppearance } from "./components/Button";
+export type { ButtonProps } from "./components/Button";
 
 // Constants
 export * from "./constants";
