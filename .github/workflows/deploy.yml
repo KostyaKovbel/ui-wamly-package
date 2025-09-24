@@ -29,19 +29,30 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check current version
+      - name: Sync version with npm
         run: |
-          CURRENT_VERSION=$(node -p "require('./package.json').version")
-          echo "Current version: $CURRENT_VERSION"
+          # Get current local version
+          LOCAL_VERSION=$(node -p "require('./package.json').version")
+          echo "Local version: $LOCAL_VERSION"
           
-          # Check if version exists on npm
-          if npm view ui-wamly-package@$CURRENT_VERSION version > /dev/null 2>&1; then
-            echo "Version $CURRENT_VERSION already exists on npm, patching..."
+          # Get latest version from npm
+          NPM_VERSION=$(npm view ui-wamly-package version 2>/dev/null || echo "0.0.0")
+          echo "NPM version: $NPM_VERSION"
+          
+          # Compare versions and update if needed
+          if [ "$LOCAL_VERSION" = "$NPM_VERSION" ]; then
+            echo "Versions match, patching..."
+            npm version patch --no-git-tag-version
+            NEW_VERSION=$(node -p "require('./package.json').version")
+            echo "New version: $NEW_VERSION"
+          elif [ "$(printf '%s\n' "$LOCAL_VERSION" "$NPM_VERSION" | sort -V | head -n1)" = "$LOCAL_VERSION" ]; then
+            echo "Local version ($LOCAL_VERSION) is older than npm ($NPM_VERSION), updating to npm version..."
+            npm version $NPM_VERSION --no-git-tag-version
             npm version patch --no-git-tag-version
             NEW_VERSION=$(node -p "require('./package.json').version")
             echo "New version: $NEW_VERSION"
           else
-            echo "Version $CURRENT_VERSION does not exist on npm, using current version"
+            echo "Local version ($LOCAL_VERSION) is newer than npm ($NPM_VERSION), using local version"
           fi
 
       - name: Publish to NPM
