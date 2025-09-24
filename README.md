@@ -77,6 +77,7 @@ npm run type-check
 ### Publishing to NPM
 
 To publish a new version to NPM:
+
 1. Go to Actions tab in GitHub
 2. Run "Publish Package to NPM" workflow
 3. Choose version type (patch, minor, major)
