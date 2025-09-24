@@ -179,10 +179,10 @@ The library provides CSS variables with the `--w-` prefix:
   /* Wamly brand colors */
   --wamly-accent: #ff5757;
   --wamly-accent-60: #ff9c9c;
-  
+
   /* Typography */
-  --w-font-family: 'Poppins', sans-serif;
-  
+  --w-font-family: "Poppins", sans-serif;
+
   /* Spacing (4px grid) */
   --w-spacing-0: 0px;
   --w-spacing-1: 4px;
@@ -195,20 +195,20 @@ The library provides CSS variables with the `--w-` prefix:
   --w-spacing-8: 32px;
   --w-spacing-9: 36px;
   --w-spacing-10: 40px;
-  
+
   /* Colors */
   --w-text-primary: #292a2e;
   --w-text-secondary: #505258;
   --w-text-tertiary: #6b6e76;
   --w-text-invert: #ffffff;
-  
+
   /* Background colors */
   --w-bg-neutral: rgba(30, 31, 33, 0.06);
   --w-bg-danger: #ffc7c7;
   --w-bg-success: #bdf5c6;
   --w-bg-warning: #ffe699;
   --w-bg-information: #cce7ff;
-  
+
   /* Border colors */
   --w-border-default: rgba(30, 31, 33, 0.12);
   --w-border-focused: #505258;
@@ -216,7 +216,7 @@ The library provides CSS variables with the `--w-` prefix:
   --w-border-success: #1b9e31;
   --w-border-warning: #dd8502;
   --w-border-information: #076ec2;
-  
+
   /* And many more... */
 }
 ```
