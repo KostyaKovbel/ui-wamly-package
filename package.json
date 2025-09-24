@@ -1,13 +1,14 @@
 {
   "name": "ui-wamly-package",
   "version": "1.0.0",
-  "description": "UI компоненти для проекту Wamly",
+  "description": "UI components for the Wamly project",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "style": "dist/index.css",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",

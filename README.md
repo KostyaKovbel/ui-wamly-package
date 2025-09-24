@@ -1,115 +1,137 @@
 # UI Wamly Package
 
-Бібліотека UI компонентів для проекту Wamly, побудована на React 18 та TypeScript.
+A UI component library for the Wamly project, built with React 18 and TypeScript.
 
-## 🚀 Особливості
+## 🚀 Features
 
-- ⚛️ React 18 з TypeScript
-- 📚 Storybook для документації та тестування компонентів
-- 🎨 Готові UI компоненти з підтримкою тем
-- 📦 Готово для публікації на NPM як приватний пакет
-- 🔧 Налаштована збірка з Rollup
+- ⚛️ React 18 with TypeScript
+- 📚 Storybook for component documentation and testing
+- 🎨 Ready-to-use UI components with theme support
+- 📦 Ready for NPM publication as a private package
+- 🔧 Configured build with Rollup
 
-## 📦 Встановлення
+## 📦 Installation
 
 ```bash
-npm install @breadbq/ui-wamly
+npm install ui-wamly-package
 ```
 
-## 🎯 Використання
+## 🎯 Usage
 
 ```tsx
-import { Button, Input, Card } from '@breadbq/ui-wamly';
+import { Button } from "ui-wamly-package";
+import "ui-wamly-package/dist/index.css";
 
 function App() {
   return (
     <div>
-      <Button variant="primary" size="md">
+      <Button appearance="primary" size="md">
         Click me
       </Button>
-      
-      <Input 
-        label="Email" 
-        type="email" 
-        placeholder="Enter your email" 
-      />
-      
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p>Card content goes here</p>
-        </CardContent>
-      </Card>
     </div>
   );
 }
 ```
 
-## 🧩 Компоненти
+## 🧩 Components
 
 ### Button
-- Варіанти: `primary`, `secondary`, `outline`, `ghost`
-- Розміри: `sm`, `md`, `lg`
-- Підтримка всіх стандартних HTML атрибутів
 
-### Input
-- Підтримка різних типів (`text`, `email`, `password`, `number`)
-- Лейбли та повідомлення про помилки
-- Helper text
+- Variants: `primary`, `secondary`, `outline`, `ghost`, `success`, `warning`, `error`
+- Sizes: `sm`, `md`, `lg`
+- Support for all standard HTML button attributes
 
-### Card
-- Модульна структура з `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`
-- Гнучка система стилізації
+## 🛠 Development
 
-## 🛠 Розробка
+### Install dependencies
 
-### Встановлення залежностей
 ```bash
 npm install
 ```
 
-### Запуск Storybook
+### Run Storybook
+
 ```bash
 npm run storybook
 ```
 
-### Збірка бібліотеки
+### Build library
+
 ```bash
 npm run build
 ```
 
-### Лінтинг
+### Linting
+
 ```bash
 npm run lint
 npm run lint:fix
 ```
 
-### Перевірка типів
+### Type checking
+
 ```bash
 npm run type-check
 ```
 
 ## 📚 Storybook
 
-Storybook доступний за адресою `http://localhost:6006` після запуску `npm run storybook`.
+### Local Development
 
-Тут ви можете:
-- Переглядати всі компоненти
-- Тестувати різні варіанти та стани
-- Копіювати код для використання
-- Переглядати документацію
+Storybook is available at `http://localhost:6006` after running `npm run storybook`.
 
-## 🎨 Стилізація
+### Online Documentation
 
-Бібліотека використовує CSS змінні для темизації. Підтримується світла та темна теми.
+The Storybook is automatically deployed to GitHub Pages and available at:
+**https://kostyakovbel.github.io/ui-wamly-package/**
 
-## 📝 Ліцензія
+#### Setting up GitHub Pages
+
+To enable GitHub Pages deployment:
+
+1. Go to your repository Settings
+2. Navigate to Pages section
+3. Under "Source", select "GitHub Actions"
+4. The workflow will automatically deploy on every push to main branch
+
+Here you can:
+
+- View all components
+- Test different variants and states
+- Copy code for usage
+- View documentation
+
+## 🎨 Styling
+
+The library uses CSS variables for theming. Light and dark themes are supported.
+
+### CSS Variables
+
+The library provides CSS variables with the `--w-` prefix:
+
+```css
+:root {
+  --w-color-primary: #3b82f6;
+  --w-color-primary-hover: #2563eb;
+  --w-color-primary-active: #1d4ed8;
+  --w-spacing-md: 1rem;
+  --w-radius-md: 0.375rem;
+  /* ... and many more */
+}
+```
+
+### Import Styles
+
+Make sure to import the CSS file in your application:
+
+```tsx
+import "ui-wamly-package/dist/index.css";
+```
+
+## 📝 License
 
 MIT
 
-## 👨‍💻 Автор
+## 👨‍💻 Author
 
 breadbq
