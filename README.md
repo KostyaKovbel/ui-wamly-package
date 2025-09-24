@@ -112,11 +112,11 @@ Storybook is available at `http://localhost:6006` after running `npm run storybo
 
 ### Online Documentation
 
-The Storybook is automatically deployed to GitHub Pages:
+The Storybook is automatically deployed to Vercel:
 
-- **Production**: https://kostyakovbel.github.io/ui-wamly-package/ (main branch)
-- **Development**: https://kostyakovbel.github.io/ui-wamly-package/dev (dev branch)
-- **Staging**: https://kostyakovbel.github.io/ui-wamly-package/staging (staging branch)
+- **Production**: https://ui-wamly-package.vercel.app/ (main branch)
+- **Development**: https://ui-wamly-package-git-dev.vercel.app/ (dev branch)
+- **Staging**: https://ui-wamly-package-git-staging.vercel.app/ (staging branch)
 
 #### Setting up Vercel
 
