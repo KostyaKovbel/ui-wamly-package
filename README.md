@@ -13,14 +13,14 @@ A UI component library for the Wamly project, built with React 18 and TypeScript
 ## 📦 Installation
 
 ```bash
-npm install @breadbq/ui-wamly-package
+npm install ui-wamly-package
 ```
 
 ## 🎯 Usage
 
 ```tsx
-import { Button } from "@breadbq/ui-wamly-package";
-import "@breadbq/ui-wamly-package/dist/index.css";
+import { Button } from "ui-wamly-package";
+import "ui-wamly-package/dist/index.css";
 
 function App() {
   return (
@@ -73,6 +73,14 @@ npm run lint:fix
 ```bash
 npm run type-check
 ```
+
+### Publishing to NPM
+
+To publish a new version to NPM:
+1. Go to Actions tab in GitHub
+2. Run "Publish Package to NPM" workflow
+3. Choose version type (patch, minor, major)
+4. The package will be automatically published to NPM
 
 ## 📚 Storybook
 
