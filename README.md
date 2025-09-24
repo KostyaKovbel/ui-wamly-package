@@ -127,11 +127,26 @@ To enable Vercel deployment:
 3. Configure build settings:
    - Build Command: `npm run build-storybook`
    - Output Directory: `storybook-static`
+<<<<<<< HEAD
 4. Add Vercel tokens to GitHub Secrets:
    - `VERCEL_TOKEN`
    - `VERCEL_ORG_ID`
    - `VERCEL_PROJECT_ID`
 5. The workflow will automatically deploy on every push to any branch
+=======
+4. Vercel will automatically deploy on every push to any branch
+
+#### Setting up NPM Publishing
+
+To enable NPM publishing:
+
+1. Add NPM token to GitHub Secrets:
+   - `NPM_TOKEN` - from https://www.npmjs.com/settings/tokens
+2. GitHub Actions will automatically publish on every push:
+   - Main branch → `latest` tag
+   - Dev branch → `dev` tag
+   - Staging branch → `staging` tag
+>>>>>>> staging
 
 Here you can:
 
@@ -174,3 +189,5 @@ MIT
 ## 👨‍💻 Author
 
 breadbq
+
+# Test staging deployment

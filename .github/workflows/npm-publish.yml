@@ -1,0 +1,98 @@
+name: Publish to NPM
+
+on:
+  push:
+    branches: [ main, dev, staging ]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version type (patch, minor, major)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
+
+permissions:
+  contents: write
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Publish to NPM (Production)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if [ "${{ github.event_name }}" = "push" ] || [ "${{ github.event.inputs.version }}" = "patch" ]; then
+            npm version patch --no-git-tag-version
+          else
+            npm version ${{ github.event.inputs.version }} --no-git-tag-version
+          fi
+          
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          git add package.json
+          git commit -m "chore: bump version to $NEW_VERSION"
+          git tag "v$NEW_VERSION"
+          git push origin main --force
+          git push origin "v$NEW_VERSION" --force
+          
+          # Publish to NPM with latest tag
+          npm publish --tag latest
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish to NPM (Development)
+        if: github.ref == 'refs/heads/dev'
+        run: |
+          # Create dev version (e.g., 1.0.0-dev.1)
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          DEV_VERSION="${CURRENT_VERSION}-dev.$(date +%s)"
+          npm version $DEV_VERSION --no-git-tag-version
+          echo "DEV_VERSION=$DEV_VERSION" >> $GITHUB_ENV
+          git add package.json
+          git commit -m "chore: bump dev version to $DEV_VERSION"
+          git push origin dev --force
+          
+          # Publish to NPM with dev tag
+          npm publish --tag dev
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish to NPM (Staging)
+        if: github.ref == 'refs/heads/staging'
+        run: |
+          # Create staging version (e.g., 1.0.0-staging.1)
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          STAGING_VERSION="${CURRENT_VERSION}-staging.$(date +%s)"
+          npm version $STAGING_VERSION --no-git-tag-version
+          echo "STAGING_VERSION=$STAGING_VERSION" >> $GITHUB_ENV
+          git add package.json
+          git commit -m "chore: bump staging version to $STAGING_VERSION"
+          git push origin staging --force
+          
+          # Publish to NPM with staging tag
+          npm publish --tag staging
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
